@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Link to the main stylesheet -->
+  <link rel="stylesheet" href="/main.css">
+  <!-- Link to the favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Load JavaScript modules -->
+  <script type="module" src="./scripts/game.js"></script>
+  <script type="module" src="./scripts/ui.js"></script>
+</head>
+
+<body>
+  <!-- Root window container -->
+  <div id="root-window">
+    <!-- Container for Three.js canvas element -->
+    <div id="render-target"></div>
+    <!-- Loading overlay -->
+    <div id="loading" class="text-overlay">
+      <div>
+        LOADING...
+      </div>
+    </div>
+    <!-- Paused overlay -->
+    <div id="paused-text" class="text-overlay" style="visibility: hidden;">
+      <div>
+        PAUSED
+      </div>
+    </div>
+    <!-- UI elements container -->
+    <div id="ui">
+      <!-- Title bar -->
+      <div id="title-bar">
+        <!-- Budget display -->
+        <div id="budget-display" class="title-bar-left-items title-bar-items">
+          Budget: <span id="budget-value">0</span>
+        </div>
+        <!-- City name and simulation time display -->
+        <div class="title-bar-center-items title-bar-items">
+          <span id="city-name">My City</span>
+          <span>&nbsp;-&nbsp;</span>
+          <span id="sim-time">1/1/2023</span>
+        </div>
+        <!-- Population display -->
+        <div class="title-bar-right-items title-bar-items">
+          <img id="population-icon" src="/icons/person.png">
+          <span id="population-counter">0</span>
+        </div>
+      </div>
+      <!-- UI toolbar -->
+      <div id="ui-toolbar" class="container">
+        <!-- Tool buttons -->
+        <button id='button-select' class="ui-button selected" data-type="select" onclick="ui.onToolSelected(event)">
+          <img class="toolbar-icon" src="/icons/select-color.png">
+        </button>
+        <button id='button-bulldoze' class="ui-button" data-type="bulldoze" onclick="ui.onToolSelected(event)">
+          Bulldoze
+        </button>
+        <button id='button-residential' class="ui-button" data-type="residential" onclick="ui.onToolSelected(event)">
+          1 BHK
+        </button>
+        <button id='button-commercial' class="ui-button" data-type="TBHK" onclick="ui.onToolSelected(event)">
+          2 BHK
+        </button>
+        <button id='button-industrial' class="ui-button" data-type="CBHK" onclick="ui.onToolSelected(event)">
+          3 BHK
+        </button>
+        <button id='button-road' class="ui-button" data-type="mini" onclick="ui.onToolSelected(event)">
+          Mini S
+        </button>
+        <button id='button-power-plant' class="ui-button" data-type="macro" onclick="ui.onToolSelected(event)">
+          Macro S
+        </button>
+        <button id='button-power-line' class="ui-button" data-type="large" onclick="ui.onToolSelected(event)">
+          Large S
+        </button>
+        <button id='button-power-line' class="ui-button" data-type="bank" onclick="ui.onToolSelected(event)">
+          Bank
+        </button>
+        <button id='button-power-line' class="ui-button" data-type="Hospital" onclick="ui.onToolSelected(event)">
+          Hospital
+        </button>
+        <button id='button-power-line' class="ui-button" data-type="Concert" onclick="ui.onToolSelected(event)">
+          Concert
+        </button>
+        <!-- Pause button -->
+        <button id='button-pause' class="ui-button" data-type="firestation" onclick="ui.onToolSelected(event)">
+          Fire Station
+        </button>
+        <button id='button-pause' class="ui-button" data-type="Police" onclick="ui.onToolSelected(event)">
+          Police
+        </button>
+        <button id='button-pause' class="ui-button" data-type="Restaurent" onclick="ui.onToolSelected(event)">
+          Restraunt
+        </button>
+        <button id='button-pause' class="ui-button" data-type="School" onclick="ui.onToolSelected(event)">
+          School
+        </button>
+        <button id='button-pause' class="ui-button" data-type="SM" onclick="ui.onToolSelected(event)">
+          SM
+        </button>
+        <button id='button-pause' class="ui-button" onclick="ui.togglePause()">
+          <img id='pause-button-icon' class="toolbar-icon" src="/icons/pause-color.png">
+        </button>
+      </div>
+      <!-- Info panel container -->
+      <div id="info-panel" class="container">
+      </div>
+      <!-- Instructions -->
+      <div id="instructions">
+      
+      </div>
+      <!-- Version display -->
+      <div id="version">
+        INTERACT - Left Mouse<br>
+        ROTATE - Right Mouse<br>
+        PAN - Control + Right Mouse<br>
+        ZOOM - Scroll
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
